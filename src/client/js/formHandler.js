@@ -7,12 +7,13 @@ function handleSubmit(event) {
     Client.checkForName(formText)
 
     console.log("::: Form Submitted :::")
-    fetch('http://localhost:8081/test')
+    fetch('https://randomuser.me/api/')
     .then(res => {
         return res.json()
     })
     .then(function(data) {
-        document.getElementById('results').innerHTML = data.message
+        document.getElementById('results').innerHTML = JSON.stringify(data.results)
+        console.log(data.results[0].name.first);
     })
 }
 
